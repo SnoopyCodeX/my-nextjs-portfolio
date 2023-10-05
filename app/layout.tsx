@@ -19,7 +19,7 @@ export const metadata = {
   openGraph: {
     title: "John Roy Lapida | Portfolio",
     description: `John Roy Lapida is a freelance website and mobile app developer with ${yearsOfFreelancingExperience} years of experience in freelancing.`,
-    image: favIcon,
+    image: favIcon.src,
     url: "https://johnroylapida.vercel.app",
     type: "website",
     locale: "en_US",
