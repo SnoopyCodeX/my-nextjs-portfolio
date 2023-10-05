@@ -6,14 +6,26 @@ import ThemeContextProvider from '@/context/theme-context'
 import { dateDiffInYears } from '@/lib/utils'
 import { Inter } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
+import favIcon from '@/app/favicon.ico'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 let yearsOfFreelancingExperience = dateDiffInYears(new Date("2020-11-1"), new Date(Date.now()))
 
 export const metadata = {
+  metadataBase: 'https://johnroylapida.vercel.app',
   title: 'John Roy Lapida | Portfolio',
   description: `John Roy Lapida is a freelance website and mobile app developer with ${yearsOfFreelancingExperience} years of experience in freelancing.`,
+  openGraph: {
+    title: "John Roy Lapida | Portfolio",
+    description: `John Roy Lapida is a freelance website and mobile app developer with ${yearsOfFreelancingExperience} years of experience in freelancing.`,
+    image: favIcon,
+    url: "https://johnroylapida.vercel.app",
+    type: "website",
+    locale: "en_US",
+    site_name: "John Roy Lapida | Portfolio",
+    authors: ["John Roy Lapida"]
+  }
 }
 
 export default function RootLayout({
