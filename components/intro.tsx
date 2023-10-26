@@ -8,7 +8,7 @@ import { useSectionInView } from '@/lib/hooks'
 import { dateDiffInYears } from '@/lib/utils'
 import catProfileImg from '@/public/cat_profile.jpg'
 import Link from 'next/link'
-import { BsArrowRight, BsLinkedin } from 'react-icons/bs'
+import { BsArrowRight, BsFacebook } from 'react-icons/bs'
 import { FaGithubSquare } from 'react-icons/fa'
 import { HiDownload } from 'react-icons/hi'
 
@@ -46,8 +46,8 @@ export default function Intro() {
                     Download CV <HiDownload className="opacity-60 group-hover:translate-y-1 transition" />
                 </a>
                 
-                <a className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full ouline-none focus:scale-[1.15] hover:text-gray-950 hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60" href="https://www.linkedin.com/in/johnroylapida" target="_blank">
-                    <BsLinkedin />
+                <a className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full ouline-none focus:scale-[1.15] hover:text-gray-950 hover:scale-[1.15] active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60" href="https://facebook.com/johnroycalimlim" target="_blank">
+                    <BsFacebook />
                 </a>
                 
                 <a className="bg-white p-4 text-gray-700 flex items-center gap-2 rounded-full text-[1.35rem] ouline-none focus:scale-[1.15] hover:scale-[1.15] hover:text-gray-950 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/10 dark:text-white/60" href="https://www.github.com/SnoopyCodeX" target="_blank">
