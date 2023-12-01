@@ -1,6 +1,6 @@
 import Footer from '@/components/footer'
 import Header from '@/components/header'
-import ThemeSwitch from '@/components/theme-switch'
+// import ThemeSwitch from '@/components/theme-switch'
 import ActiveSectionContextProvider from '@/context/active-section-context'
 import ThemeContextProvider from '@/context/theme-context'
 import { dateDiffInYears } from '@/lib/utils'
@@ -8,6 +8,8 @@ import { Inter } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import favIcon from '@/app/favicon.ico'
 import './globals.css'
+// import { useEffect } from 'react'
+import { Background } from '@/components/background'
 
 const inter = Inter({ subsets: ['latin'] })
 let yearsOfFreelancingExperience = dateDiffInYears(new Date("2020-11-1"), new Date(Date.now()))
@@ -33,20 +35,24 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
   return (
     <html lang="en" className='!scroll-smooth'>
-      <body className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}>
+      <body className={`${inter.className} bg-gray-50 text-gray-950 relative pt-28 sm:pt-36 dark:bg-[hsla(240deg, 20%, 20%, 1)] dark:text-gray-50 dark:text-opacity-90`}>
+        {/*         
         <div className='bg-[#fbe2e3] absolute top-[-6rem] right-[11rem] h-[31.25rem] w-[31.25rem] -z-10 rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#946263]'></div>
-        <div className='bg-[#dbd7fb] absolute top-[-1rem] left-[-35rem] h-[31.25rem] w-[50rem] -z-10 rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]'></div>
+        <div className='bg-[#dbd7fb] absolute top-[-1rem] left-[-35rem] h-[31.25rem] w-[50rem] -z-10 rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]'></div> 
+        */}
 
         <ThemeContextProvider>
+          <Background />
           <ActiveSectionContextProvider>
             <Header />
             {children}
             <Footer />
 
             <Toaster position='top-right'/>
-            <ThemeSwitch />
+            {/* <ThemeSwitch /> */}
           </ActiveSectionContextProvider>
         </ThemeContextProvider>
       </body>
