@@ -10,6 +10,7 @@ import favIcon from '@/app/favicon.ico'
 import './globals.css'
 // import { useEffect } from 'react'
 import { Background } from '@/components/background'
+import Script from 'next/script'
 
 const inter = Inter({ subsets: ['latin'] })
 let yearsOfFreelancingExperience = dateDiffInYears(new Date("2020-11-1"), new Date(Date.now()))
@@ -43,6 +44,49 @@ export default function RootLayout({
         <div className='bg-[#fbe2e3] absolute top-[-6rem] right-[11rem] h-[31.25rem] w-[31.25rem] -z-10 rounded-full blur-[10rem] sm:w-[68.75rem] dark:bg-[#946263]'></div>
         <div className='bg-[#dbd7fb] absolute top-[-1rem] left-[-35rem] h-[31.25rem] w-[50rem] -z-10 rounded-full blur-[10rem] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem] dark:bg-[#676394]'></div> 
         */}
+
+        {/* <!-- Messenger Chat Plugin Code --> */}
+        <div id="fb-root"></div>
+
+        {/* <!-- Your Chat Plugin code --> */}
+        <div id="fb-customer-chat" className="fb-customerchat">
+        </div>
+
+        <Script
+          id="messenger-tag"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "189895014212773");
+            chatbox.setAttribute("attribution", "biz_inbox");
+        `
+          }}
+        ></Script>
+
+        {/* <!-- Your SDK code --> */}
+        <Script
+          id="messenger-sdk"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.fbAsyncInit = function() {
+                FB.init({
+                    xfbml            : true,
+                    version          : 'v18.0'
+                });
+            };
+
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        `
+          }}
+        ></Script>
 
         <ThemeContextProvider>
           <Background />
